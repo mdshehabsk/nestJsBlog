@@ -1,0 +1,23 @@
+
+<nav>
+  <div class='container'>
+    <div class='nav_wrapper'>
+      <div class='logo'>
+        <a href='/'>Blog</a>
+      </div>
+      <div class='info'>
+        <div class='image' id="profile" >
+          <img src={{myInfo.avatarImg}} alt='no image' />
+        </div>
+        <ul class='links'>
+          <li><a href='{{process.env.APP.URL}}/profile'> <i class='bx bx-user-circle'></i> &nbsp;Profile</a></li>
+                  {{#if role}}
+          <li><a href='{{process.env.APP_URL}}/blog/new'><i class='bx bx-news'></i> &nbsp;New Blog</a></li>
+               {{/if}}
+          <li><a href='{{process.env.APP_URL}}/auth/logout'> <i class='bx bx-log-out'></i> &nbsp;Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+    <script src="../js/nav.js" type="module" ></script>

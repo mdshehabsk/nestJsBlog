@@ -1,0 +1,80 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>New Blog</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      href='https://unpkg.com/quill-image-uploader@1.2.1/dist/quill.imageUploader.min.css'
+      rel='stylesheet'
+    />
+    <link
+      href='https://cdn.quilljs.com/1.3.6/quill.snow.css'
+      rel='stylesheet'
+    />
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <link rel='stylesheet' href='../css/style.css' />
+    <link rel='stylesheet' href='../css/media.css' />
+  </head>
+  <body>
+    {{!-- <nav>
+      <div class='container'>
+        <div class='nav_wrapper'>
+          <div class='logo'>
+            <a href='#'>Blog</a>
+          </div>
+          <div>
+            <ul class='links'>
+              <li class='link desktop'>
+                <a href=''>
+                  <i class='bx bx-plus'></i>
+                  <span>New Post</span>
+                </a>
+              </li>
+
+              <li>
+                <a href=''>
+                  <img src={{myInfo.avatarImg}} alt='' />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav> --}}
+    {{> nav }}
+   <div class="new_blog">
+    <div class="new_blog_container">
+      <div class="image">
+        <button>Add a cover image</button>
+        <input type="file" name="blog_image" id="blog_image" >
+      </div>
+      <img id="show_image" class="show_image" >
+      </img>
+      <div class="title">
+        <textarea type="text" name="blog_title" placeholder="Enter Post Title Here" id="blog_title" ></textarea>
+        <p> <span id="title_count">0</span>/100</p>
+      </div>
+       <div id='editor'>
+
+    </div>
+    <div class="submit">
+      <button class="submit_btn" id="submit" >Publish</button>
+    </div>
+    </div>
+   </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" type="module" ></script>
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js' type="module" ></script>
+    <script src='https://cdn.quilljs.com/1.3.6/quill.js' type="module" ></script>
+
+    <script
+      src='https://unpkg.com/quill-image-uploader@1.2.1/dist/quill.imageUploader.min.js'
+     type="module" ></script>
+     <script src="../js/toast-message.js" type="module" ></script>
+    <script src='../js/quill.js' type="module" ></script>
+    <script src="../js/main.js" type="module" ></script>
+  </body>
+</html>

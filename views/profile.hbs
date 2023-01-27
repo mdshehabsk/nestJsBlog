@@ -1,0 +1,58 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Profile</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel='stylesheet' href='./css/style.css' />
+    <link rel='stylesheet' href='./css/media.css' />
+  </head>
+
+  <body>
+   {{> nav }}
+   <section class="profile">
+    <div class="profile_container">
+            <h1 class="title" >Profile</h1>
+        <div class="profile_wrapper">
+            <div class="left">
+                <div class="image">
+                    <img src="{{myInfo.avatarImg}}" alt="" id="show_image" >
+                </div>
+                <div class="name">
+                    <h2 class="name" id="show_name" >
+                        {{myInfo.name}}
+                    </h2>
+                </div>
+                <div class="bio" id="show_bio" >
+                    {{myInfo.bio}}
+                </div>
+            </div>
+            <div class="right">
+                <div class="image_upload_button">
+                    <input type="file" name="avatar" id="avatar" >
+                    <button>Upload a avatar</button>
+                </div>
+                <div class="name_change">
+                    <input type="text" name="name"  id="name" placeholder="Enter your name" >
+                </div>
+                <div class="bio_change">
+                    <textarea name="bio" id="bio" cols="30" rows="10" placeholder="Enter your bio" ></textarea>
+                    <p><span id="bio_count" >0</span>/250</p>
+                </div>
+                <div class="update_button">
+                    <button id="update" >Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+        <script src="./js/toast-message.js" type="module" ></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" type="module" ></script>
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js' type="module" ></script>
+   <script src="./js/profile.js" type="module" ></script>
+  </body>
+
+</html>
