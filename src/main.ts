@@ -15,6 +15,8 @@ async function bootstrap() {
   // app.use(express.urlencoded({extended:false}))
   app.setViewEngine('hbs');
   hbs.registerPartials(join(__dirname,'..','views','partials'))
-  await app.listen(process.env.PORT || 8000);
+  const PORT = process.env.PORT || 8000
+
+  await app.listen(PORT);
 }
 bootstrap()
