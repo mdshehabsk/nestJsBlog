@@ -62,28 +62,28 @@ export class AppModule implements NestModule {
       //     method: RequestMethod.ALL,
       //   },
       // )
-      .apply(IsLogin)
-      .forRoutes(
-        {
-          path: 'auth',
-          method: RequestMethod.GET,
-        },
-        {
-          path: 'auth/google',
-          method: RequestMethod.GET,
-        },
-        {
-          path: 'auth/facebook',
-          method: RequestMethod.GET,
-        },
-        {
-          path: 'auth/google/redirect',
-          method: RequestMethod.GET,
-        },
-        {
-          path: 'auth/facebook/redirect',
-          method: RequestMethod.GET,
-        },
-      );
+      // .apply(IsLogin)
+      // .forRoutes(
+      //   {
+      //     path: 'auth',
+      //     method: RequestMethod.GET,
+      //   },
+      //   {
+      //     path: 'auth/google',
+      //     method: RequestMethod.GET,
+      //   },
+      //   {
+      //     path: 'auth/facebook',
+      //     method: RequestMethod.GET,
+      //   },
+      //   {
+      //     path: 'auth/google/redirect',
+      //     method: RequestMethod.GET,
+      //   },
+      //   {
+      //     path: 'auth/facebook/redirect',
+      //     method: RequestMethod.GET,
+      //   },
+      // );
   }
 }

@@ -15,7 +15,7 @@ export class IsLogin implements NestMiddleware {
       res.locals.myInfo = decoded.user;
       res.locals.role = decoded.user.role === 'admin' ? true : false;
       req.user = decoded.user;
-      next();
+      next()
     });
   }
 }
