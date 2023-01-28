@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { format } from 'date-fns';
 import { BlogService } from 'src/blog/blog.service';
 import { PrismaService } from 'src/prisma/prisma.service';
-
+import { Request } from 'express';
 @Injectable()
 export class CommentService {
   constructor(
@@ -28,7 +28,7 @@ export class CommentService {
       message: 'comment successfull',
     };
   }
-  async getAllComment(blogId: number, req: any) {
+  async getAllComment(blogId: number, req: Request) {
     const { singleBlog } = await this.blogService.getSingleBlog(blogId);
     const { comment } = await this.prisma.post.findUnique({
       where: {
@@ -69,7 +69,7 @@ export class CommentService {
       allComment,
     };
   }
-  async deleteComment(blogId:number,commentId:number,req:any){
+  async deleteComment(blogId:number,commentId:number,req:Request){
     const comment = await this.prisma.comment.findUnique({
       where:{
         id:commentId
@@ -82,7 +82,7 @@ export class CommentService {
         }
       }
     })
-    const match = req.user.id === comment.authorId || comment.post.authorId === req.user.id
+    const match = req.user['id'] === comment.authorId || comment.post.authorId === req.user['id']
     if(!match){
       throw new UnauthorizedException()
     }

@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Req, UseGuards } from '@nestjs/common';
+import { Request } from 'express';
 import { CommentDelete } from 'src/guard/commentDelete.guard';
 import { CommentService } from './comment.service';
 
