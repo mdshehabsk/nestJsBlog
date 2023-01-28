@@ -46,8 +46,7 @@ bio.oninput = e => {
 }
 
 update_btn.onclick = async (e) => {
-    if(apiData.name.length < 1 && apiData.bio.length < 1){
-
+    if(apiData.name.length < 1 && apiData.bio.length < 1 && apiData.image.length < 1 ){
         return
     }
     try {

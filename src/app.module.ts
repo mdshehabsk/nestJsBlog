@@ -14,6 +14,7 @@ import { HtmlDecoratorMiddleware } from './middleware/htmlDecorator.middleware';
 import { HomeController } from './home/home.controller';
 import { CommentModule } from './comment/comment.module';
 import { CommentController } from './comment/comment.controller';
+import { IsLogin } from './middleware/isLogin.middleware';
 @Module({
   imports: [
     CommentModule,
@@ -29,13 +30,60 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(HtmlDecoratorMiddleware)
-      .forRoutes({ path: 'blog/new', method: RequestMethod.GET },{path:'',method:RequestMethod.GET})
+      .forRoutes(
+        { path: 'blog/new', method: RequestMethod.GET },
+        { path: '', method: RequestMethod.GET },
+        { path: 'auth', method: RequestMethod.GET },
+        { path: 'blog/:id', method: RequestMethod.GET },
+        { path: 'profile/', method: RequestMethod.GET },
+      )
       .apply(AuthMiddleware)
-      .forRoutes(BlogController,HomeController,CommentController)
+      .forRoutes(CommentController,HomeController,BlogController)
       // .forRoutes(
-      //   { path: 'blog/new', method: RequestMethod.GET },
-      //   { path: 'blog/new', method: RequestMethod.POST },
-      //   { path: 'blog/image', method: RequestMethod.POST },
-      // );
+      //   CommentController,
+      //   {
+      //     path: 'auth/logout',
+      //     method: RequestMethod.GET,
+      //   },
+      //   {
+      //     path: 'blog/new',
+      //     method: RequestMethod.ALL,
+      //   },
+      //   {
+      //     path: 'blog/image',
+      //     method: RequestMethod.POST,
+      //   },
+      //   {
+      //     path: 'profile/',
+      //     method: RequestMethod.ALL,
+      //   },
+      //   {
+      //     path: 'profile/update',
+      //     method: RequestMethod.ALL,
+      //   },
+      // )
+      .apply(IsLogin)
+      .forRoutes(
+        {
+          path: 'auth',
+          method: RequestMethod.GET,
+        },
+        {
+          path: 'auth/google',
+          method: RequestMethod.GET,
+        },
+        {
+          path: 'auth/facebook',
+          method: RequestMethod.GET,
+        },
+        {
+          path: 'auth/google/redirect',
+          method: RequestMethod.GET,
+        },
+        {
+          path: 'auth/facebook/redirect',
+          method: RequestMethod.GET,
+        },
+      );
   }
 }
