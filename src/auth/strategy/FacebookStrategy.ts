@@ -8,6 +8,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       callbackURL: '/auth/facebook/redirect',
       profileFields: ['id', 'displayName','photos', 'email',],
+      Proxy:true
     });
   }
 

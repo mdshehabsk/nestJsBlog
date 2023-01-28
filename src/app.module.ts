@@ -23,7 +23,7 @@ import { IsLogin } from './middleware/isLogin.middleware';
       isGlobal: true,
     }),
     HomeModule,
-    BlogModule,
+    BlogModule
   ],
 })
 export class AppModule implements NestModule {

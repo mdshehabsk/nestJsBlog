@@ -16,12 +16,10 @@
 
   <body>
    {{> nav }}
-    {{!-- {{#each post}}
-      <li>{{this.id}}</li>
-    {{/each}} --}}
     <main>
       <div class='main_container'>
         {{#each blog}}
+        {{!-- {{log this}} --}}
                 <div class='main_item'>
           <div class='main_item_topbar'>
             <div class='left'>
@@ -44,8 +42,27 @@
         </div>
         {{/each}}
       </div>
+  <div class="pagination" id="pagination" >
+    {{!-- <ul>
+      <li>
+        <a href="/?page=1">prev</a>
+      </li>
+      <li>
+        <a href="">2</a>
+      </li>
+      <li>
+        <a href="">3</a>
+      </li>
+      <li>
+        <a href="">4</a>
+      </li>
+      <li>
+        <a href="">next</a>
+      </li>
+    </ul> --}}
+  </div>
     </main>
-
+    <script src="./js/pagination.js" ></script>
   </body>
 
 </html>

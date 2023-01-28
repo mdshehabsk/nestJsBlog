@@ -215,6 +215,35 @@ main  .main_item .main_item_image  img {
     object-fit: cover;
     transition: .4s ease;
 }
+main  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+main  .pagination  ul {
+    display: flex;
+    gap: 10px;
+}
+main  .pagination  ul li {
+    /* padding: 10px 15px ; */
+    background-color: var(--main-color);
+}
+
+main  .pagination  ul li a {
+    color: var(--white-color);
+    display: block;
+    padding: 10px 15px ;
+}
+
+
+
+
+
+
+
+
+
+z
 
 
 /* blog section design */
@@ -267,6 +296,9 @@ section.blog .blog_wrapper > .right .date {
 section.blog .blog_wrapper > .right .content .ql-syntax {
     max-width: 100%;
     overflow-x: scroll;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    padding: 20px;
 }
 section.blog .blog_wrapper > .right .user_info {
     margin: 30px auto;

@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Patch, Post, Render, Req, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, ParseIntPipe, Patch, Post, Query, Render, Req, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { Request } from 'express';
+import { query, Request } from 'express';
 import { HomeService } from './home.service';
 const imageFileFilter = (req, file: Express.Multer.File, done) => {
     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
@@ -16,8 +16,8 @@ export class HomeController {
     }
     @Get('')
     @Render('index')
-    getHome() {
-        return this.homeService.homePage()
+    getHome(@Query('page') pageNo : number ) {
+        return this.homeService.homePage(pageNo)
     }
     //profile page
     @Get('/profile')
