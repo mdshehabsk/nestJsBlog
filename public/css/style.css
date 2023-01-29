@@ -147,6 +147,7 @@ nav .nav_wrapper .info .links li:hover{
 nav .nav_wrapper .info .links li:hover a{
     color:var(--white-color);
 }
+
 nav .nav_wrapper .info .links li  a{
     color: var(--black-color);
     display: block;
@@ -160,8 +161,49 @@ nav .nav_wrapper .info img {
     border-radius: 50%;
     border: 2px solid var(--main-color);
 }
+nav .nav_wrapper .login_icon {
+    position: relative;
+}
+nav .nav_wrapper .login_icon i {
+    font-size: 20px;
+    cursor: pointer;
+}
+nav .nav_wrapper .login_icon .login_links {
+    border-radius: 4px;
+    display: none;
+    position: absolute;
+    width: 200px;
+    /* left: -100%; */
+    right: 0;
+    top: 50px;
+    box-shadow: 2px 0px 3px 3px hsl(0, 0%, 90%);
+    padding: 10px 0;
+    background-color: var(--white-color);
+    backdrop-filter: blur(30px);
+}
+nav .nav_wrapper .login_icon .login_links li {
+    padding: 10px 15px;
+    margin: 5px 0;
+}
+nav .nav_wrapper .login_icon .login_links li:hover{
+    background-color: var(--main-color);
+}
+nav .nav_wrapper .login_icon .login_links li:hover a{
+    color:var(--white-color);
+}
 
-
+nav .nav_wrapper .login_icon .login_links li  a{
+    color: var(--black-color);
+    display: block;
+}
+nav .nav_wrapper .login_icon .login_links.active {
+    display: block;
+}
+#close {
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+}
 /* main container design  */
 
 main {

@@ -15,6 +15,7 @@ import { HomeController } from './home/home.controller';
 import { CommentModule } from './comment/comment.module';
 import { CommentController } from './comment/comment.controller';
 import { IsLogin } from './middleware/isLogin.middleware';
+import { userDetails } from './middleware/userDetails.middleware';
 @Module({
   imports: [
     CommentModule,
@@ -38,30 +39,37 @@ export class AppModule implements NestModule {
         { path: 'profile/', method: RequestMethod.GET },
       )
       .apply(AuthMiddleware)
-      .forRoutes(CommentController,HomeController,BlogController)
-      // .forRoutes(
-      //   CommentController,
-      //   {
-      //     path: 'auth/logout',
-      //     method: RequestMethod.GET,
-      //   },
-      //   {
-      //     path: 'blog/new',
-      //     method: RequestMethod.ALL,
-      //   },
-      //   {
-      //     path: 'blog/image',
-      //     method: RequestMethod.POST,
-      //   },
-      //   {
-      //     path: 'profile/',
-      //     method: RequestMethod.ALL,
-      //   },
-      //   {
-      //     path: 'profile/update',
-      //     method: RequestMethod.ALL,
-      //   },
-      // )
+      // .forRoutes(CommentController,HomeController,BlogController)
+      .forRoutes(
+        {
+          path :'comment/comment/:blog',
+          method:RequestMethod.POST
+        },
+        {
+          path :"comment/'delete/:blogid/:commentid",
+          method:RequestMethod.DELETE
+        },
+        {
+          path: 'auth/logout',
+          method: RequestMethod.GET,
+        },
+        {
+          path: 'blog/new',
+          method: RequestMethod.ALL,
+        },
+        {
+          path: 'blog/image',
+          method: RequestMethod.POST,
+        },
+        {
+          path: 'profile/',
+          method: RequestMethod.ALL,
+        },
+        {
+          path: 'profile/update',
+          method: RequestMethod.ALL,
+        },
+      )
       // .apply(IsLogin)
       // .forRoutes(
       //   {
@@ -85,5 +93,8 @@ export class AppModule implements NestModule {
       //     method: RequestMethod.GET,
       //   },
       // );
+      consumer
+      .apply(userDetails)
+      .forRoutes(HomeController,BlogController,BlogController)
   }
 }

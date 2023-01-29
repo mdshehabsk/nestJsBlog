@@ -1,4 +1,4 @@
-
+import {ToastError} from './toast-message.js'
 
 const commentBox = document.getElementById('commentBox');
 const commentBtn = document.getElementById('comment_btn');
@@ -61,7 +61,11 @@ commentBtn.onclick = async (e) => {
       commentFetch()
     }
   } catch (error) {
-    console.log(error);
+    if(error){
+
+      ToastError(error?.response?.data?.message)
+    }
+    // console.log(error?.response?.data?.message)
   }
 };
 
@@ -122,6 +126,6 @@ window.deleteComment = async (id) => {
       commentFetch()
     }
   } catch (error) {
-      console.log(error)
+      ToastError(error.reponse.data.message)
   }
 }

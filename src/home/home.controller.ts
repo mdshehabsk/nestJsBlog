@@ -10,6 +10,7 @@ const imageFileFilter = (req, file: Express.Multer.File, done) => {
     done(null, true);
   };
 @Controller('')
+
 export class HomeController {
     constructor(private readonly homeService:HomeService){
 
@@ -32,5 +33,5 @@ export class HomeController {
       }))
     async profileUpdate (@UploadedFile() avatar:Express.Multer.File ,@Body() data ,@Req() req:Request ) {
         return  await this.homeService.profileUpdate(avatar,data,req)
-    }
+    };
 }
