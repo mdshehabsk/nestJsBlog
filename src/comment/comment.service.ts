@@ -29,6 +29,7 @@ export class CommentService {
     };
   }
   async getAllComment(blogId: number, req: Request) {
+    const user:any = req.user
     const { singleBlog } = await this.blogService.getSingleBlog(blogId);
     const { comment } = await this.prisma.post.findUnique({
       where: {
@@ -51,8 +52,8 @@ export class CommentService {
 
     const allComment = comment?.map((obj) => {
       if (
-        obj.authorId === req.user['id'] ||
-        singleBlog.author.id === req.user['id']
+        obj.authorId === user?.id ||
+        singleBlog.author.id === user?.id
       ) {
         return {
           ...obj,
