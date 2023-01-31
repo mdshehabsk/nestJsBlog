@@ -95,6 +95,6 @@ export class AppModule implements NestModule {
       // );
       consumer
       .apply(userDetails)
-      .forRoutes(HomeController,BlogController,BlogController)
+      .forRoutes(HomeController,BlogController,BlogController,CommentController)
   }
 }

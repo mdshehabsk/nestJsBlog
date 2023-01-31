@@ -16,8 +16,8 @@ export class CommentController {
       return this.commentService.postComment(comment, blogId, userId);
     }
     // get all comment
-    @Get('allComment/:post')
-    getAllComment(@Param('post', ParseIntPipe) blogId: number , @Req() req:Request    ) {
+    @Get('allComment/:blog')
+    getAllComment(@Param('blog', ParseIntPipe) blogId: number , @Req() req:Request    ) {
       return this.commentService.getAllComment(blogId,req)
     }
     // @UseGuards(CommentDelete)
