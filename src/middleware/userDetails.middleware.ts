@@ -9,6 +9,7 @@ export class userDetails implements NestMiddleware {
       if(verify) {
         res.locals.myInfo = verify['user'];
         res.locals.role = verify.user.role === 'admin' ? true : false
+        req.user = verify.user
         next()
       };
       } catch (error) {
